@@ -5,16 +5,16 @@ theme: "hugo-flex"
 
 params:
   color: ForestGreen
-  width: 42rem
-  footer: ""
-  summaries: true
+  width: 52rem
+  footer: '<a href="https://github.com/kressi/">https://github.com/kressi/</a>'
+  summaries: false
   divider: '\2015\2015'
 
 menu:
   nav:
-  - name: About
+  - name: about
     url: about/
     weight: 1
-  - name: Posts
-    url: post/
+  - name: posts
+    url: posts/
     weight: 2
