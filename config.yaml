@@ -1,0 +1,20 @@
+baseURL: "https://www.lunulata.io/"
+languageCode: "en-us"
+title: "lunulata.io"
+theme: "hugo-flex"
+
+params:
+  color: ForestGreen
+  width: 42rem
+  footer: ""
+  summaries: true
+  divider: '\2015\2015'
+
+menu:
+  nav:
+  - name: About
+    url: about/
+    weight: 1
+  - name: Posts
+    url: post/
+    weight: 2
