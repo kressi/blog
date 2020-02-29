@@ -5,7 +5,7 @@ set -e
 
 printf "\033[0;32mDeploying updates to GitHub...\033[0m\n"
 
-# Build the project.
+# Build site
 hugo --theme hugo-flex
 
 # Go To Public folder
