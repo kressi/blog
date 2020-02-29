@@ -1,4 +1,5 @@
-.PHONY: clean build tidy deploy
+# https://github.com/marcanuy/hugo-deploy-aws-makefile/blob/master/Makefile
+.PHONY: clean build tidy check deploy
 
 PUBLIC_FOLDER := public
 DEPLOY_SCRIPT := deploy.sh
@@ -15,6 +16,9 @@ tidy:
 	find $(PUBLIC_FOLDER) -type f -name '*.html' -print \
 		-exec tidy -config $(TIDY_CONF) '{}' \;
 
-deploy: build
+check:
+	htmlproofer --check-html $(PUBLIC_FOLDER)
+
+deploy: build tidy check
 	./$(DEPLOY_SCRIPT)
 
