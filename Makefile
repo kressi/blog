@@ -21,7 +21,7 @@ all: clean build tidy check
 clean:
 	printf "$(GRN)Clean $(PUBLIC_FOLDER)...$(END)\n"
 	cd $(PUBLIC_FOLDER)
-	ls -A | awk !'or(/README.md/,/.git/)' | xargs rm -rf
+	ls -A | grep -v 'README.md\|.git' | xargs rm -rf
 
 build:
 	printf "$(GRN)Build site...$(END)\n"
