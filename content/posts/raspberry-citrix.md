@@ -102,7 +102,7 @@ $ reboot
 
 ```bash
 $ sudo dpkg -i Downloads/icaclient_19.12.0.19_armhf.deb
-$ sudo mv ubs_certificate.crt /usr/local/share/ca-certificates/
+$ sudo mv certificate.crt /usr/local/share/ca-certificates/
 $ sudo update-ca-certificates
 $ sudo ln -sf /etc/ssl/certs/* /opt/Citrix/ICAClient/keystore/cacerts/
 ```
@@ -110,7 +110,7 @@ $ sudo ln -sf /etc/ssl/certs/* /opt/Citrix/ICAClient/keystore/cacerts/
 [backup] raspbian-xfwm-midori-citrix.img
 
 ## Start Citrix
-- Browse https://www.ubs.com/itanywhere
+- Get Citrix connection file
 - Open downloaded icx file
 
 ## Audio
