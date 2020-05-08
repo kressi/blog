@@ -45,7 +45,8 @@ deploy: all
 	printf "$(GRN)Deploy to GitHub...$(END)\n"
 	cd $(PUBLIC_FOLDER)
 	git add .
-	$(eval msg = $(or "$(m)", "Rebuild site $(shell date)"))
+	$(eval msg = $(or $(m), "Rebuild site $(shell date)"))
 	git commit -m $(msg) || :
+	# git diff-index --quiet HEAD || git commit -m $(msg)
 	git push origin master || :
 
