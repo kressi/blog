@@ -47,6 +47,5 @@ deploy: all
 	git add .
 	$(eval msg = $(or $(m), "Rebuild site $(shell date)"))
 	git commit -m $(msg) || :
-	# git diff-index --quiet HEAD || git commit -m $(msg)
 	git push origin master || :
 
