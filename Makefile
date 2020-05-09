@@ -41,11 +41,13 @@ check:
 		$(HTMLPROOFER_CMD) --check-html $(PUBLIC_FOLDER) || \
 		printf "$(RED)$(HTMLPROOFER_CMD) is not installed$(END)\n"
 
-deploy: all
-	printf "$(GRN)Deploy to GitHub...$(END)\n"
+publish:
+	printf "$(GRN)Publish to GitHub...$(END)\n"
 	cd $(PUBLIC_FOLDER)
 	git add .
 	$(eval msg = $(or $(m), "Rebuild site $(shell date)"))
 	git commit -m $(msg) || :
 	git push origin master || :
+
+deploy: all publish
 
