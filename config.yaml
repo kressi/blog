@@ -7,10 +7,8 @@ params:
   color: ForestGreen
   width: 52rem
   footer: >
-    <p><a href="https://github.com/kressi/">https://github.com/kressi/</a></p>
-    <p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-      <img src="/img/cc-by-nc-sa.png" alt="CC BY-NC-SA">
-    </a></p>
+    <a href="https://github.com/kressi/"><img src="/images/github-32.svg" alt="Github"></a>
+    <a href="mailto:lunulata@gmx.net"><img src="/images/mail-32.svg" alt="Email"></a>
   summaries: false
   divider: '\2015\2015'
 
