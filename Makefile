@@ -1,4 +1,5 @@
 SHELL := /bin/bash
+DOMAIN := www.lunulata.io
 PUBLIC_FOLDER := public
 HUGO_THEME := hugo-flex
 TIDY_CMD := tidy
@@ -38,7 +39,8 @@ check:
 	printf "$(GRN)Check site...$(END)\n"
 	hugo check
 	hash $(HTMLPROOFER_CMD) 2>/dev/null && \
-		$(HTMLPROOFER_CMD) --check-html $(PUBLIC_FOLDER) || \
+		$(HTMLPROOFER_CMD) --check-html $(PUBLIC_FOLDER) \
+		                   --internal-domains $(DOMAIN) || \
 		printf "$(RED)$(HTMLPROOFER_CMD) is not installed$(END)\n"
 
 publish:
