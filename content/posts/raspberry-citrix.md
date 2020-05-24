@@ -122,7 +122,7 @@ $ reboot
 So far we have prepared a minimal Raspbian, with a
 window manager and a browser. Now we can download
 *Citrix Workspace app for Linux (ARM HF)* from
-[Citrix for Linux](citrix-linux). Make sure to download
+[Citrix for Linux][citrix-linux]. Make sure to download
 the ARM version for Debian.
 
 Assuming Workspace app has been downloaded to Downloads,
