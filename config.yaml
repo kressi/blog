@@ -16,4 +16,12 @@ menu:
   nav:
   - name: about
     url: about/
+    weight: 2
+  - name: mortgage calculator
+    url: mortgage/
     weight: 1
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
