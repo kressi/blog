@@ -16,6 +16,9 @@ menu:
   nav:
   - name: about
     url: about/
+    weight: 3
+  - name: posts
+    url: posts/
     weight: 2
   - name: mortgage calculator
     url: mortgage/
