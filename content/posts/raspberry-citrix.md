@@ -188,7 +188,6 @@ $ sudo dd bs=4M if=/dev/mmcblk0 of=raspbian-citrix.img conv=fsync status=progres
 
 ## References
 - [autologin with systemd](https://unix.stackexchange.com/questions/42359/how-can-i-autologin-to-desktop-with-systemd)
-- [Multi-Monitor Support on Linux with Citrix Receiver 12.1](https://discussions.citrix.com/topic/310423-multi-monitor-support-on-linux-with-citrix-receiver-121/#comment-1669828)
 - [Use multiple monitor and full screen with Citrix receiver on Linux](https://arsenicks.wordpress.com/2019/01/30/use-multiple-monitor-and-full-screen-with-citrix-receiver-on-linux/)
 - [Optimize Citrix](https://docs.citrix.com/en-us/receiver/linux/current-release/optimize.html)
 - [Configure Citrix](https://docs.citrix.com/en-us/citrix-workspace-app-for-linux/configure-xenapp.html)
