@@ -16,6 +16,7 @@ Workspace App on Raspbian on a Raspberry Pi 4 with
 two monitors.
 
 ## Hardware
+
 - Raspberry Pi 4 Model B 4GB
 - 16GB Class 10 SD Card
 - 2 x Monitors 1920x1080
@@ -29,6 +30,7 @@ the packages takes 2.5GB. 4GB or 8GB would have been
 enough.
 
 ## Install Rasbian Lite
+
 First the Raspbian Buster Lite image is written to the
 SD card. It can be downloaded from
 [Rasberry downloads][raspi-download].
@@ -37,7 +39,7 @@ system. The proper device can be found for example with
 `fdisk -l`.
 
 ```bash
-$ sudo dd bs=4M if=raspbian-buster-lite.img of=/dev/mmcblk0 conv=fsync status=progress
+sudo dd bs=4M if=raspbian-buster-lite.img of=/dev/mmcblk0 conv=fsync status=progress
 ```
 
 If `dd` cannot be used to write the image to
@@ -51,9 +53,9 @@ It can be booted now. Login is `pi` and password is
 configuration.
 
 ```bash
-$ sudo apt update
-$ sudo apt dist-upgrade
-$ sudo raspi-config
+sudo apt update
+sudo apt dist-upgrade
+sudo raspi-config
 ```
 In order to use the complete screen, overscan is deactivated.
 Since it is not intended to use this raspberry for anything
@@ -66,6 +68,7 @@ boot.
 - Reboot after configuration
 
 ## Setup window manager and browser
+
 For this thin-client there is no desktop environment
 with office software, games etc. required. It only
 needs a browser to get a Citrix session and Citrix
@@ -83,22 +86,23 @@ a Citrix connection, I do need a browser. I chose
 Midori, because it feels light.
 
 ```bash
-$ sudo apt install xfwm4 xfce4-panel xinit xterm
-$ sudo apt install midori
+sudo apt install xfwm4 xfce4-panel xinit xterm
+sudo apt install midori
 ```
 
 Since I do not want to have any transparency, shadows
 etc. I deactivated the xfwm4 compositor. The settings
 menu can be opened through bash.
+
 ```bash
-$ xfwm4-tweaks-settings
+xfwm4-tweaks-settings
 ```
 
 The window manager should be started when autologin
 starts bash. So we add the xfce4-panel and xfwm4 to
 `.xinitrc`.
 ```bash
-$ cat << EOF > ~/.xinitrc
+cat << EOF > ~/.xinitrc
 xfce4-panel &
 exec xfwm4
 EOF
@@ -106,7 +110,7 @@ EOF
 
 And then `startx` in `.bashprofile`.
 ```bash
-$ cat << EOF > ~/.bash_profile
+cat << EOF > ~/.bash_profile
 if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
     exec startx
 fi
@@ -115,10 +119,11 @@ EOF
 
 After this we can reboot into xfwm4.
 ```bash
-$ reboot
+reboot
 ```
 
 ## Setup Citrix workspace
+
 So far we have prepared a minimal Raspbian, with a
 window manager and a browser. Now we can download
 *Citrix Workspace app for Linux (ARM HF)* from
@@ -132,29 +137,34 @@ missing package will be reported. The missing package
 can be installed with `apt install missing-package` 
 and then Workspace app installation with `dpkg` can
 be tried again.
+
 ```bash
-$ sudo dpkg -i Downloads/icaclient_19.12.0.19_armhf.deb
+sudo dpkg -i Downloads/icaclient_19.12.0.19_armhf.deb
 ```
 
 Make ssl certificates available to ICAClient.
+
 ```bash
-$ sudo ln -sf /etc/ssl/certs/* /opt/Citrix/ICAClient/keystore/cacerts/
+sudo ln -sf /etc/ssl/certs/* /opt/Citrix/ICAClient/keystore/cacerts/
 ```
 
 In case the certificate of your companies website
 is not trusted, you can add it to your certificates
 and update the certificates.
+
 ```bash
-$ sudo mv certificate.crt /usr/local/share/ca-certificates/
-$ sudo update-ca-certificates
+sudo mv certificate.crt /usr/local/share/ca-certificates/
+sudo update-ca-certificates
 ```
 
 ## Citrx Configuration
+
 For my headset to work on the remote host, I also installed
 Pulseaudio plugin and changed the `AllowAudioInput` in
 `~/wfclient.ini` to `true`.
+
 ```bash
-$ sudo apt install xfce4-pulseaudio-plugin
+sudo apt install xfce4-pulseaudio-plugin
 ```
 
 `wfclient.ini`:
@@ -171,12 +181,15 @@ line with a semicolon.
 ```
 
 ## Backup
+
 Finally, I made a backup of my Raspberry on my notebook.
+
 ```bash
-$ sudo dd bs=4M if=/dev/mmcblk0 of=raspbian-citrix.img conv=fsync status=progress
+sudo dd bs=4M if=/dev/mmcblk0 of=raspbian-citrix.img conv=fsync status=progress
 ```
 
 ## Start Citrix
+
 - Get Citrix connection file
 - Open downloaded icx file
 
@@ -187,6 +200,7 @@ $ sudo dd bs=4M if=/dev/mmcblk0 of=raspbian-citrix.img conv=fsync status=progres
 [citrix-linux]: https://www.citrix.com/downloads/workspace-app/linux/workspace-app-for-linux-latest.html
 
 ## References
+
 - [autologin with systemd](https://unix.stackexchange.com/questions/42359/how-can-i-autologin-to-desktop-with-systemd)
 - [Use multiple monitor and full screen with Citrix receiver on Linux](https://arsenicks.wordpress.com/2019/01/30/use-multiple-monitor-and-full-screen-with-citrix-receiver-on-linux/)
 - [Optimize Citrix](https://docs.citrix.com/en-us/receiver/linux/current-release/optimize.html)
