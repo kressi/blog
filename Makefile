@@ -59,7 +59,7 @@ publish:
 	git add .
 	$(eval msg = $(or $(m), "Rebuild site $(shell date)"))
 	git commit -m $(msg) || :
-	git push origin master || :
+	git push origin main || :
 
 .PHONY: deploy
 deploy: all publish
